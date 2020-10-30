@@ -9,7 +9,7 @@ Printing procedure:
 
 - From a pre-generated list of 100,000 random 6-letter codes, a batch of 50 codes is taken
 
-- For these, codes are printed on labels in doublets: one label for the tubem one for the slop.
+- For these, codes are printed on labels in doublets: one label for the tube, one for the slip.
 
 - 50 kits form a batch, packed into a bag.
 
@@ -101,11 +101,13 @@ Each shipment contains
 
 - For each subject, a randomly generated access code (9 digits) is added.
 
-- The access codes are added to the data base, preliminarily assigned to the dummy tube code "__reserved__". When adding them, we check that they are not yet assigned.
+- The access codes are added to the data base, preliminarily assigned to the dummy tube code `__reserved__`. When adding them, we check that they are not yet assigned.
 
 - The table is used to print cover letter, consent form and questionnaire
 
-- The cover letter contains that access code as digits (in bis font) at the top right and as a barcode within the address area (such that it can be read through the envelope window). The consent form and the questionnaire contain the barcode at some fixed place.
+- The cover letter contains that access code as digits (in big font) at the top right and as a barcode within the address area (such that it can be read through the envelope window). The consent form and the questionnaire contain the barcode at some fixed place.
+
+- The cover letter may also contain a QR code with a URL for the result query page, including the access code.
 
 - The printout is collated such that the cover letters, consent forms and questionnaires alternate, with all material for one addressee in one bunch.
 
@@ -135,7 +137,7 @@ A worker
 
 During part C, the following happens on the IT side
 
-- When the access code is scanned, the script verifies that this access code is assigned to "__reserved__"
+- When the access code is scanned, the script verifies that this access code is assigned to `__reserved__`.
 
 - When the tube is scanned, the script verifies that the tube code is not yet assigned to an access code.
 
@@ -165,7 +167,7 @@ Note: This procedure is not suitable for Micronics tubes. One could devise an al
 
 - Now, we add four randomly generated access codes to each address, i.e., we have four new columns
 
-- All four are added to the data base as "__unassigned__", with checking that they have not been issued yet.
+- All four are added to the data base as `__unassigned__`, with checking that they have not been issued yet.
 
 - The cover letter now lists four 9-digit access codes, each preceded with a digit (1 to 4) in a circle.
 
@@ -205,7 +207,7 @@ While scanning, the following happens internally
 
 - The script retrieves all four access codes for this address record.
 
-- It checks that these access codes are all mapped to "__unassigned__"
+- It checks that these access codes are all mapped to `__unassigned__`
 
 - Then, a tube barcode is scanned.
 
