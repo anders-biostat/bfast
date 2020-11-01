@@ -18,13 +18,13 @@ Printing procedure:
 
 ### for tubes without Micronics-style barcode
 
-Each tube gets a barcode label with a code of the form "ZLnnnnnn", where "nnnnnn" is a consecutively increasing number, padded with leading zeroes to 6 digits. It is packed together with a paper slip with a numeric "access code" of the form "kkk kkk kkk", which is generated randomly and tied to the tube barcode. 50 such kits form a "bag" (no longer "batch" to avoid confusion with test batches)
+Each tube gets a barcode label with a code of the form "Znnnnn", where "nnnnn" is a consecutively increasing number, padded with leading zeroes to 6 digits. It is packed together with a paper slip with a numeric "access code" of the form "kkk kkk kkk", which is generated randomly and tied to the tube barcode. 50 such kits form a "bag" (no longer "batch" to avoid confusion with test batches)
 
 #### Part A: Labelling of tubes
 
-- A range of values for nnnnnn is chosen, typically such that the range starts with a multiple of 50 and ends with a multiple of 50 minus 1.
+- A range of values for nnnnn is chosen, typically such that the range starts with a multiple of 50 and ends with a multiple of 50 minus 1.
 
-- Tube codes are grouped into bags: For example, bag Z23A contains codes from ZL002300 to ZL002349 and bag Z23B contains codes from ZL002350 to ZL002399, i.e.: the bag IDs always start with "Z" (for "ZMBH") followed by the four leading digits (with leading zeroes omitted), and then A if the final two digits are 0 to 49 or B if they are 50 to 99.
+- Tube codes are grouped into bags: For example, bag Z23A contains codes from Z02300 to Z02349 and bag Z23B contains codes from Z02350 to Z02399, i.e.: the bag IDs always start with "Z" (for "ZMBH") followed by the three leading digits (with leading zeroes omitted), and then A if the final two digits are 0 to 49 or B if they are 50 to 99.
 
 - Now, a roll of labels is printed. Each batch starts with a full-width dummy label like "batch Z23A" followed by 25 labels, each containg two of the codes. To do so, we will have a script that takes a starting value and a number of batches to be printed, and prints the labels.
 
@@ -67,6 +67,10 @@ Whenever the worker holds a tube against the scanner, the following is done by t
   - the access code in a box
 
   - a QR code, linking to https://covidtest-heidelberg.de/sample?access=kkkkkkkkk
+  
+  - im small font, "Code auf dem Röhrchen: Znnnnn"
+  
+  - Freifelder zum Eintragen: "Name" and "Datum"
 
 
 ### for Micronics tubes with barcode
